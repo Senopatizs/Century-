@@ -1,6 +1,11 @@
 body {background-color:white:
      }
 ul{list-style-type:none;
+   Padding:10 px ;
+    Font-size: 15 px;
+    border: 2 px solid deep teal blue;
+  }
+   
   }
 Li{display : inline;
   : 10 px ;
