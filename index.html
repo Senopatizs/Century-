@@ -4,11 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Century Project - Space Exploration Hub</title>
-  <!-- Google Fonts: Orbitron & Rajdhani -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
   <style>
     :root {
       --bg-dark: #FFFFFF;
@@ -18,266 +16,58 @@
       --gold-star: #FFD700;
       --text-light: #1E293B;
       --text-muted: #64748B;
-      --glass-bg: #FFFFFF;
       --glass-border: rgba(11, 25, 44, 0.12);
     }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Rajdhani', sans-serif;
-    }
-
-    body {
-      background-color: var(--bg-dark);
-      color: var(--text-light);
-      overflow-x: hidden;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* Header Navigasi - Hitam Keren dengan Aksen Neon Biru */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: #090D16;
-      border-bottom: 2px solid var(--cyan-glow);
-      padding: 1rem 2rem;
-      box-shadow: 0 4px 20px rgba(0, 240, 255, 0.25);
-    }
-
-    nav {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .brand-logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: #FFFFFF;
-      text-decoration: none;
-      letter-spacing: 2px;
-      text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-    }
-
-    .nav-links button {
-      background: transparent;
-      border: none;
-      color: #94A3B8;
-      cursor: pointer;
-      font-size: 1.1rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: all 0.3s ease;
-      position: relative;
-      padding: 0.4rem 0;
-    }
-
-    .nav-links button:hover,
-    .nav-links button.active {
-      color: var(--cyan-glow);
-      text-shadow: 0 0 10px rgba(0, 240, 255, 0.8);
-    }
-
-    .nav-links button.active::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: var(--cyan-glow);
-      box-shadow: 0 0 12px var(--cyan-glow);
-      border-radius: 2px;
-    }
-
-    /* Konten Utama */
-    main {
-      max-width: 1200px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 2rem 1.5rem;
-      flex-grow: 1;
-    }
-
-    .tab-content {
-      display: none;
-      animation: fadeIn 0.5s ease-in-out forwards;
-    }
-
-    .tab-content.active {
-      display: block;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Hero Banner */
-    .hero {
-      text-align: center;
-      padding: 3.5rem 1rem;
-      background: radial-gradient(circle at center, rgba(11, 25, 44, 0.05) 0%, transparent 70%);
-      border-radius: 20px;
-      margin-bottom: 2.5rem;
-      border: 1px solid var(--glass-border);
-    }
-
-    .hero h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 2.8rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      color: var(--navy-main);
-      margin-bottom: 0.5rem;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: var(--text-muted);
-    }
-
-    /* Glassmorphism Card */
-    .glass-card {
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: 16px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-    }
-
-    .section-title {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.8rem;
-      color: var(--navy-main);
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .section-title::before {
-      content: '';
-      width: 6px;
-      height: 28px;
-      background: var(--navy-main);
-      border-radius: 3px;
-    }
-
-    /* Grid Filosofi Logo */
-    .logo-philosophy-grid {
-      display: grid;
-      grid-template-columns: 320px 1fr;
-      gap: 2.5rem;
-      align-items: center;
-    }
-
-    .logo-display-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem 1.5rem;
-      background: #FFFFFF;
-      border-radius: 20px;
-      border: 2px solid var(--navy-main);
-      box-shadow: 0 10px 25px rgba(11, 25, 44, 0.08);
-      text-align: center;
-    }
-
-    .philosophy-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.2rem;
-      margin-top: 1.5rem;
-    }
-
-    .philosophy-item {
-      background: #F8FAFC;
-      padding: 1.2rem;
-      border-radius: 12px;
-      border-left: 3px solid var(--navy-main);
-    }
-
-    .philosophy-item h4 {
-      font-family: 'Orbitron', sans-serif;
-      color: var(--navy-main);
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .philosophy-item p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
-    /* Canva Embed Style */
-    .canva-container {
-      position: relative;
-      width: 100%;
-      height: 0;
-      padding-top: 56.2500%;
-      padding-bottom: 0;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-      margin-top: 1.6em;
-      margin-bottom: 0.9em;
-      overflow: hidden;
-      border-radius: 8px;
-      will-change: transform;
-    }
-
-    .canva-container iframe {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      border: none;
-      padding: 0;
-      margin: 0;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Rajdhani', sans-serif; }
+    body { background-color: var(--bg-dark); color: var(--text-light); overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column; }
+    
+    /* Header */
+    header { position: sticky; top: 0; z-index: 100; background: #090D16; border-bottom: 2px solid var(--cyan-glow); padding: 1rem 2rem; box-shadow: 0 4px 20px rgba(0,240,255,0.25); }
+    nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .brand-logo { display: flex; align-items: center; gap: 12px; font-family: 'Orbitron', sans-serif; font-size: 1.4rem; font-weight: 800; color: #FFF; text-decoration: none; letter-spacing: 2px; text-shadow: 0 0 10px rgba(0,240,255,0.5); }
+    .nav-links { display: flex; list-style: none; gap: 2rem; }
+    .nav-links button { background: transparent; border: none; color: #94A3B8; cursor: pointer; font-size: 1.1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; position: relative; padding: 0.4rem 0; }
+    .nav-links button:hover, .nav-links button.active { color: var(--cyan-glow); text-shadow: 0 0 10px rgba(0,240,255,0.8); }
+    .nav-links button.active::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 3px; background: var(--cyan-glow); box-shadow: 0 0 12px var(--cyan-glow); border-radius: 2px; }
+    
+    /* Layout Utama */
+    main { max-width: 1200px; width: 100%; margin: 0 auto; padding: 2rem 1.5rem; flex-grow: 1; }
+    .tab-content { display: none; animation: fadeIn 0.5s ease-in-out forwards; }
+    .tab-content.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+    
+    /* Hero & Card */
+    .hero { text-align: center; padding: 3.5rem 1rem; background: radial-gradient(circle at center, rgba(11,25,44,0.05) 0%, transparent 70%); border-radius: 20px; margin-bottom: 2.5rem; border: 1px solid var(--glass-border); }
+    .hero h1 { font-family: 'Orbitron', sans-serif; font-size: 2.8rem; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; color: var(--navy-main); margin-bottom: 0.5rem; }
+    .hero p { font-size: 1.2rem; color: var(--text-muted); }
+    .glass-card { background: #FFF; border: 1px solid var(--glass-border); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 8px 30px rgba(0,0,0,0.06); }
+    .section-title { font-family: 'Orbitron', sans-serif; font-size: 1.8rem; color: var(--navy-main); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 12px; }
+    .section-title::before { content: ''; width: 6px; height: 28px; background: var(--navy-main); border-radius: 3px; }
+    
+    /* Grid Layouts */
+    .logo-philosophy-grid { display: grid; grid-template-columns: 320px 1fr; gap: 2.5rem; align-items: center; }
+    .logo-display-box { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 1.5rem; background: #FFF; border-radius: 20px; border: 2px solid var(--navy-main); box-shadow: 0 10px 25px rgba(11,25,44,0.08); text-align: center; }
+    .grid-2col { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+    .card-box { background: #F8FAFC; padding: 1.5rem; border-radius: 12px; border: 1px solid var(--glass-border); }
+    .card-box h3 { font-family: 'Orbitron', sans-serif; color: var(--navy-main); margin-bottom: 0.5rem; }
+    .card-box p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; }
+    
+    /* Canva Container */
+    .canva-container { position: relative; width: 100%; height: 0; padding-top: 56.25%; margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+    .canva-container iframe { position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; }
+    
     @media (max-width: 768px) {
-      .logo-philosophy-grid {
-        grid-template-columns: 1fr;
-      }
-      .hero h1 {
-        font-size: 2rem;
-      }
-      .nav-links {
-        gap: 1rem;
-      }
+      .logo-philosophy-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2rem; }
+      .nav-links { gap: 1rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header Navigasi -->
   <header>
     <nav>
       <a href="#" class="brand-logo">
-        <!-- Logo Vektor Century di Navbar dengan Aksen Biru Neon Keren -->
         <svg width="38" height="38" viewBox="0 0 100 100" style="filter: drop-shadow(0px 0px 6px #00F0FF);">
           <path d="M 68 25 A 32 32 0 1 0 68 75" fill="none" stroke="#00F0FF" stroke-width="12" stroke-linecap="square"/>
           <ellipse cx="50" cy="50" rx="46" ry="14" fill="none" stroke="#00F0FF" stroke-width="6" transform="rotate(-18 50 50)"/>
@@ -298,61 +88,35 @@
     <section id="home" class="tab-content active">
       <div class="hero">
         <h1>Welcome To Century Project</h1>
+        <p>Eksplorasi Teknologi & Sains Kosmik Berlandaskan Persatuan dan Kepercayaan.</p>
       </div>
 
-      <!-- Kotak Filosofi Logo -->
       <div class="glass-card">
         <h2 class="section-title">Filosofi Logo</h2>
         <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
           Logo Century memiliki desain sederhana yang mengandung makna mendalam.
         </p>
-
         <div class="logo-philosophy-grid">
-          <!-- Tampilan Logo Resmi Century -->
           <div class="logo-display-box">
             <svg width="170" height="170" viewBox="0 0 100 100">
-              <!-- Huruf C -->
               <path d="M 68 25 A 32 32 0 1 0 68 75" fill="none" stroke="#0B192C" stroke-width="12" stroke-linecap="square"/>
-              <!-- Garis Orbit Melingkar -->
               <ellipse cx="50" cy="50" rx="46" ry="14" fill="none" stroke="#0B192C" stroke-width="6" transform="rotate(-18 50 50)"/>
-              <!-- Bintang di Tengah -->
               <path d="M 50 30 L 53.5 44.5 L 68 50 L 53.5 55.5 L 50 70 L 46.5 55.5 L 32 50 L 46.5 44.5 Z" fill="#0B192C"/>
             </svg>
             <div style="font-family: 'Orbitron'; font-weight: 900; font-size: 1.3rem; color: #0B192C; letter-spacing: 3px; margin-top: 10px;">CENTURY</div>
           </div>
-
           <div>
-            <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 1rem;">
+            <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-light);">
               "Logo Century memiliki desain sederhana yang mengandung makna mendalam. Huruf C melambangkan identitas Century serta semangat untuk terus berkembang. Bintang di tengah menggambarkan harapan, cita-cita, dan tujuan yang ingin dicapai. Garis melingkar melambangkan persatuan, perjalanan yang berkelanjutan, dan kemajuan tanpa henti. Warna biru navy mencerminkan kepercayaan, ketegasan, dan tanggung jawab. Secara keseluruhan, logo Century menggambarkan semangat untuk terus maju, menjaga kepercayaan, dan bersatu dalam mencapai tujuan demi masa depan yang lebih baik."
             </p>
-
-            <div class="philosophy-list">
-              <div class="philosophy-item">
-                <h4>Huruf 'C'</h4>
-                <p>Melambangkan identitas Century serta semangat untuk terus berkembang.</p>
-              </div>
-              <div class="philosophy-item">
-                <h4>Bintang di Tengah</h4>
-                <p>Menggambarkan harapan, cita-cita, dan tujuan yang ingin dicapai.</p>
-              </div>
-              <div class="philosophy-item">
-                <h4>Garis Melingkar</h4>
-                <p>Melambangkan persatuan, perjalanan yang berkelanjutan, dan kemajuan tanpa henti.</p>
-              </div>
-              <div class="philosophy-item">
-                <h4>Warna Biru Navy</h4>
-                <p>Mencerminkan kepercayaan, ketegasan, dan tanggung jawab.</p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
 
-      <!-- EMBED CANVA DI BAGIAN PALING BAWAH HALAMAN HOME -->
       <div class="glass-card">
         <h2 class="section-title">Presentasi Century Project</h2>
         <div class="canva-container">
-          <iframe loading="lazy" src="https://www.canva.com/design/DAHYIg_pgLQ/QzTBe0ZiSzjOMnrQ-OMWxQ/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+          <iframe loading="lazy" src="https://www.canva.com/design/DAHYIg_pgLQ/QzTBe0ZiSzjOMnrQ-OMWxQ/view?embed" allowfullscreen></iframe>
         </div>
       </div>
     </section>
@@ -364,14 +128,14 @@
         <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
           Pusat dokumentasi estetika visual, palet warna kosmik, serta tipografi standar yang digunakan dalam pengembangan ekosistem Century Project.
         </p>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
-          <div style="background: #F8FAFC; padding: 1.5rem; border-radius: 12px; border: 1px solid var(--glass-border);">
-            <h3 style="font-family: 'Orbitron'; color: var(--navy-main); margin-bottom: 0.5rem;">Modern Clean Theme</h3>
-            <p style="color: var(--text-muted); font-size: 0.95rem;">Tampilan bersih dan cerah dengan dominasi latar belakang putih untuk meningkatkan keterbacaan.</p>
+        <div class="grid-2col">
+          <div class="card-box">
+            <h3>Modern Clean Theme</h3>
+            <p>Tampilan bersih dan cerah dengan dominasi latar belakang putih untuk meningkatkan keterbacaan.</p>
           </div>
-          <div style="background: #F8FAFC; padding: 1.5rem; border-radius: 12px; border: 1px solid var(--glass-border);">
-            <h3 style="font-family: 'Orbitron'; color: var(--navy-main); margin-bottom: 0.5rem;">Navy & Gold Balance</h3>
-            <p style="color: var(--text-muted); font-size: 0.95rem;">Dominasi biru navy gelap yang merepresentasikan ketegasan dipadu aksen emas melambangkan harapan.</p>
+          <div class="card-box">
+            <h3>Navy & Gold Balance</h3>
+            <p>Dominasi biru navy gelap yang merepresentasikan ketegasan dipadu aksen emas melambangkan harapan.</p>
           </div>
         </div>
       </div>
@@ -384,37 +148,33 @@
         <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
           Inovasi teknologi dan perangkat lunak yang dirancang untuk mendukung manajemen data serta eksplorasi masa depan.
         </p>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
-          <div style="background: #F8FAFC; padding: 1.5rem; border-radius: 12px; border: 1px solid var(--glass-border);">
-            <h3 style="font-family: 'Orbitron'; color: var(--navy-main); margin-bottom: 0.5rem;">Century Core OS</h3>
-            <p style="color: var(--text-muted); font-size: 0.95rem;">Sistem operasi terdesentralisasi khusus pemrosesan data jaringan stasiun ruang angkasa.</p>
+        <div class="grid-2col">
+          <div class="card-box">
+            <h3>Century Core OS</h3>
+            <p>Sistem operasi terdesentralisasi khusus pemrosesan data jaringan stasiun ruang angkasa.</p>
           </div>
-          <div style="background: #F8FAFC; padding: 1.5rem; border-radius: 12px; border: 1px solid var(--glass-border);">
-            <h3 style="font-family: 'Orbitron'; color: var(--navy-main); margin-bottom: 0.5rem;">Orbital Telemetry Link</h3>
-            <p style="color: var(--text-muted); font-size: 0.95rem;">Protokol komunikasi enkripsi spektrum luas untuk transmisi data jarak jauh.</p>
+          <div class="card-box">
+            <h3>Orbital Telemetry Link</h3>
+            <p>Protokol komunikasi enkripsi spektrum luas untuk transmisi data jarak jauh.</p>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Script Interaksi -->
   <script>
-    // Tab Navigation Switcher
     const navBtns = document.querySelectorAll('.nav-btn');
     const tabContents = document.querySelectorAll('.tab-content');
 
     navBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         const targetTab = btn.getAttribute('data-tab');
-
         navBtns.forEach(b => b.classList.remove('active'));
         tabContents.forEach(c => c.classList.remove('active'));
-
         btn.classList.add('active');
         document.getElementById(targetTab).classList.add('active');
       });
     });
   </script>
 </body>
-  </html>
+</html>
